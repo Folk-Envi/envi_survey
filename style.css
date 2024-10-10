@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    font-family: "Sarabun", sans-serif;
+    font-size: 0.97em;
+    margin: 0 auto ;
+    max-width: 450px;
+    
+}
+body h1{
+    font-size: 1.2em;
+    text-align: center;
+}
+.main_title{
+    border: 1px solid rgb(142, 248, 56);
+    color: #5692b4;
+    background-color: #e6f0e7;
+    border-radius: 0.5em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 220px;
+    
+}
+
+.container{
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+   
+}
+.container .title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.sub_title{
+    margin-top: 10px;
+    width: calc(100% / 2-20px);
+}
+.sub_title .input_sec{
+    padding-left: 10px;
+   
+   
+}
+
+
+.container .suggest{
+    margin-top: 10px;
+}
+.container .suggest_input{
+    margin: auto;
+    width: 96%;
+    text-align: left;
+    padding-left: 15px;
+    margin-top: 20px;
+    
+    
+    
+}
+title .h1 b{
+   text-align: center;
+   
+}
+table {
+    border-collapse: collapse;
+    width: 450px;
+    text-align: center;
+    margin: 0 auto;
+    justify-items: center;
+
+}
+
+td, th {
+    border: 1px solid #034b2f;
+    background-color: #f8f8ee;
+    text-align: left;
+    padding: 8px;
+}
+th{
+    color: #2561b1;
+    font-size: 16px;
+    background-color: #a9fad8;
+}
+
+tr:nth-child(even) {
+    background-color: #fffdfd;
+}
+table tr .check{
+    width: 40px;
+    text-align: center;
+}
+table tr .in{
+    width: 50px;
+    text-align: center;
+}
+
