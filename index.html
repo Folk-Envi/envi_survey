@@ -7,7 +7,7 @@
     <title>แบบสำรวจสิ่งแวดล้อม</title>
 </head>
 <body>
-    <form method="post" accept-charset="UTF-8" autocomplete="off" name="แบบสำรวจสิ่งแวดล้อม">
+    <form method="post" accept-charset="UTF-8" autocomplete="off" name="แบบสำรวจผู้แทน">
 
         <div class="container">
 
@@ -170,12 +170,12 @@
 </body>
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwOCAlaO3piMuKSYZp9Msj4WN5pCmPfT2tyuzRdiih8nG3wT7VqdWd7dfHsAuBZj0r5-g/exec'
-    const form = document.forms['แบบสำรวจสิ่งแวดล้อม']
+    const form = document.forms['แบบสำรวจผู้แทน']
     
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => document.getElementById("demo").innerHTML = แบบสำรวจสิ่งแวดล้อม.reset())
+        .then(response => document.getElementById("demo").innerHTML = แบบสำรวจผู้แทน.reset())
         .catch(error => console.error('Error!', error.message))
         Swal.fire({
             title: "ส่งเรียบร้อย!",
