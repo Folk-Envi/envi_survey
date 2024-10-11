@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
     <link rel="stylesheet" href="style.css">
     <title>แบบสำรวจสิ่งแวดล้อม</title>
 </head>
 <body>
     <form method="post" accept-charset="UTF-8" autocomplete="off" name="แบบสำรวจผู้แทน">
-
+        <div id="content">
         <div class="container">
 
             <div class="main_title"><h1><b>แบบสำรวจสิ่งแวดล้อม</b></h1></div>
@@ -160,10 +163,11 @@
             <div><input class="suggest_input" placeholder="ข้อเสนอแนะ" type="text"  name="ข้อเสนอแนะ" ></div>
          
             <div class="box_button"><button class="button" type="submit" name="submit" value="submit">ส่งแบบสำรวจ</button></div>
+            <div class="box_button"><button class="button" id="save-pdf">Download PDF</button></div>
             <p id="demo"></p>
 
         </div>  
-
+        </div>
         
 
     </form>
@@ -182,6 +186,16 @@
             icon: "success"
         });
     })
+</script>
+<script>
+    document.getElementById('save-pdf').addEventListener('click', function() {
+        html2canvas(document.getElementById('content')).then(function(canvas) {
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF();
+            pdf.addImage(imgData, 'PNG', 0, 0);
+            pdf.save('download.pdf');
+        });
+    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

@@ -101,7 +101,9 @@ table tr .in{
 .container .box_button{
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
+
 .button{
     
     width: 100px;
@@ -113,4 +115,4 @@ table tr .in{
     border-radius: 4px;
     cursor: pointer;    
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
