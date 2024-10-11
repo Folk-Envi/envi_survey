@@ -3,75 +3,76 @@
 
 *{
     font-family: "Sarabun", sans-serif;
-    font-size: 0.97em;
+    font-size: 11px;
     margin: 0 auto ;
-    max-width: 450px;
+    max-width: 100%;
     
 }
-body h1{
-    font-size: 1.2em;
-    text-align: center;
+body{
+    margin: 0;
+    height: auto;
+    background: rgb(177, 241, 228)
+    
 }
-.main_title{
-    border: 1px solid rgb(142, 248, 56);
-    color: #5692b4;
-    background-color: #e6f0e7;
-    border-radius: 0.5em;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 220px;
+.container{
+    max-width: 400px; /* ขนาดสูงสุด */
+    width: 100%; /* ขนาดยืดหยุ่น */
+    height: auto; /* ขนาดคงที่ */
+    margin: 20px auto; /* จัดกลาง */
+    background: #fff;
+    padding: 25px 30px;
+    padding-top: 10px;
+    border-radius: 5px;
+    
+    
     
 }
 
-.container{
-    margin: 0 auto;
-    width: 100%;
-    display: block;
-   
-}
 .container .title{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+    margin-top: 15px;
 }
-.sub_title{
-    margin-top: 10px;
+.sub_title {
     width: calc(100% / 2-20px);
+    margin: 5px 0 5px 0;
+    
 }
-.sub_title .input_sec{
-    padding-left: 10px;
-   
-   
+.input_sec{
+    border-radius: 0.5em;
+    height: 20px;
+    margin-left: 5px;
+    padding: 0 10px;
+    outline: none;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    
+}
+input[type="radio"] {
+	accent-color: rgb(22, 110, 182);
 }
 
+.main_title{
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1 b{
+    font-size: 15px;
+    color: #098661;
+}
 
-.container .suggest{
-    margin-top: 10px;
-}
-.container .suggest_input{
-    margin: auto;
-    width: 96%;
-    text-align: left;
-    padding-left: 15px;
-    margin-top: 20px;
-    
-    
-    
-}
-title .h1 b{
-   text-align: center;
-   
-}
 table {
     border-collapse: collapse;
-    width: 450px;
+    width: 400px;
     text-align: center;
     margin: 0 auto;
     justify-items: center;
 
 }
+
 
 td, th {
     border: 1px solid #034b2f;
@@ -79,10 +80,11 @@ td, th {
     text-align: left;
     padding: 8px;
 }
-th{
-    color: #2561b1;
-    font-size: 16px;
-    background-color: #a9fad8;
+tr, th{
+    color: #03331f;
+
+    background-color: #d1f3e8;
+    text-align: center;
 }
 
 tr:nth-child(even) {
@@ -93,7 +95,7 @@ table tr .check{
     text-align: center;
 }
 table tr .in{
-    width: 50px;
+    width: 35px;
     text-align: center;
 }
 

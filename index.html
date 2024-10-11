@@ -9,14 +9,16 @@
 <body>
     <form action="">
 
-        <div class="main_title"><h1><b>แบบสำรวจสิ่งแวดล้อม</b></h1></div>
+        
         
         <div class="container">
 
+            <div class="main_title"><h1><b>แบบสำรวจสิ่งแวดล้อม</b></h1></div>
+
             <div class="title">
                 <div class="sub_title">
-                    <label for="หน่วยงาน">หน่วยงาน</label>
-                    <input class="input_sec" placeholder="เลือกหน่วยงาน" list="หน่วยงาน" required autocomplete="off" id="ชื่อหน่วยงาน" name="ชื่อหน่วยงาน">
+                    <span for="หน่วยงาน"><b>หน่วยงาน :</b></span>
+                    <input class="input_sec" style="width: 80px;" placeholder="เลือกหน่วยงาน" list="หน่วยงาน" required autocomplete="off" id="ชื่อหน่วยงาน" name="ชื่อหน่วยงาน">
                         <datalist id="หน่วยงาน">
                         <option value="รส.2">
                         <option value="รส.3">
@@ -48,18 +50,20 @@
                         <option value="ปภ."> 
                         </datalist>
                 </div>
+
                 <div class="sub_title">
-                    <label for="date">วันที่ทำการสำรวจ</label>
+                    <span for="date"><b>วันที่ทำการสำรวจ :</b></span>
                     <input class="input_sec" type="date" name="วันที่ทำการสำรวจ" required>
                 </div>
-               <br>
+              
                <div class="sub_title">
-                    <label for="ชื่อผู้สำรวจ">ชื่อผู้สำรวจ</label>
-                    <input class="input_sec" type="text" name="ชื่อผู้สำรวจ" style="width: 155px;" required>
+                    <span for="ชื่อผู้สำรวจ"><b>ชื่อผู้สำรวจ :</b></span>
+                    <input class="input_sec" type="text" name="ชื่อผู้สำรวจ"  required>
                 </div>
+
                 <div class="sub_title">
-                    <label for="ตำแหน่ง">ตำแหน่ง</label>
-                    <input class="input_sec" type="text" name="ตำแหน่ง" required>
+                    <span for="ตำแหน่ง"><b>ตำแหน่ง :</b></span>
+                    <input class="input_sec" style="width: 100px;" type="text" name="ตำแหน่ง" required>
                 </div>
                 
             </div>
@@ -67,75 +71,92 @@
         
             <table>
                 <tr>
-                    <th><center>เรื่อง</center></th>
-                    <th><center>รายละเอียดการสำรวจ</center></th>
-
-                    <th class="check">ผ่าน</th>
-                    <th class="check">ไม่ผ่าน</th>
+                    <th rowspan="2"><center>รายละเอียดการสำรวจ</center></th>
+                    <th colspan="3"><center>ผลการสำรวจ</center></th>
+                </tr>
+                <tr>
+                    <th>ผ่าน</th>
+                    <th>ไม่ผ่าน</th>
+                    <th>ไม่มี</th>   
                 </tr>
 
-                
                 <tr>
-                    <td rowspan="3">1. ความสะอาด</td>
+                   <td colspan="4" style="color: rgb(32, 118, 247);">1. ความสะอาด</td> 
+                </tr>
+
+                <tr>
                     <td>1.1 อาคารและบริเวณโดยรอบสะอาด</td>
                     <td class="in"><input type="radio"  name="1.1 อาคารและบริเวณโดยรอบสะอาด" value="1.1 ผ่าน"></td>
                     <td class="in"><input type="radio"  name="1.1 อาคารและบริเวณโดยรอบสะอาด" value="1.1 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>1.2 อุปกรณ์ของใช้สะอาดและอยู่ในสภาพดี</td>
                     <td class="in"><input type="radio" name="1.2 อุปกรณ์ของใช้สะอาดและอยู่ในสภาพดี" value="1.2 ผ่าน"></td>
                     <td class="in"><input type="radio" name="1.2 อุปกรณ์ของใช้สะอาดและอยู่ในสภาพดี" value="1.2 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>1.3 มีการจัดวางสิ่งของเป็นระเบียบเรียบร้อย</td>
                     <td class="in"><input type="radio" name="1.3 มีการจัดวางสิ่งของเป็นระเบียบเรียบร้อย" value="1.3 ผ่าน"></td>
                     <td class="in"><input type="radio" name="1.3 มีการจัดวางสิ่งของเป็นระเบียบเรียบร้อย" value="1.3 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
 
-
                 <tr>
-                    <td rowspan="5">2. ขยะ</td>
+                    <td colspan="4" style="color: rgb(32, 118, 247);">1. ขยะ</td> 
+                </tr>
+                <tr>
                     <td>2.1 ที่รองรับขยะถูกหลักสุขาภิบาล</td>
                     <td class="in"><input type="radio" name="2.1 ที่รองรับขยะถูกหลักสุขาภิบาล" value="2.1 ผ่าน"></td>
                     <td class="in"><input type="radio" name="2.1 ที่รองรับขยะถูกหลักสุขาภิบาล" value="2.1 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>2.2 ที่รองรับขยะมีจำนวนเพียงพอ</td>
                     <td class="in"><input type="radio" name="2.2 ที่รองรับขยะมีจำนวนเพียงพอ" value="2.2 ผ่าน"></td>
                     <td class="in"><input type="radio" name="2.2 ที่รองรับขยะมีจำนวนเพียงพอ" value="2.2 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>2.3 มีการคัดแยกประเภทขยะ</td>
                     <td class="in"><input type="radio" name="2.3 มีการคัดแยกประเภทขยะ" value="2.3 ผ่าน"></td>
                     <td class="in"><input type="radio" name="2.3 มีการคัดแยกประเภทขยะ" value="2.3 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>2.4 มีการคัดแยกประเภทขยะ</td>
                     <td class="in"><input type="radio" name="2.4 มีการคัดแยกประเภทขยะ" value="2.4 ผ่าน"></td>
                     <td class="in"><input type="radio" name="2.4 มีการคัดแยกประเภทขยะ" value="2.4 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>2.5 ขยะไม่ส่งกลิ่นเหม็นรบกวน</td>
                     <td class="in"><input type="radio" name="2.5 ขยะไม่ส่งกลิ่นเหม็นรบกวน" value="2.5 ผ่าน"></td>
                     <td class="in"><input type="radio" name="2.5 ขยะไม่ส่งกลิ่นเหม็นรบกวน" value="2.5 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
-
-
                 <tr>
-                    <td rowspan="3">3. น้ำเสีย</td>
+                    <td colspan="4" style="color: rgb(32, 118, 247);">3. น้ำเสีย</td> 
+                </tr>
+                <tr>
                     <td>3.1 ท่อ/ รางระบายน้ำอยู่ในสภาพดี ไม่อุดตัน</td>
                     <td class="in"><input type="radio" name="3.1 ท่อ/ รางระบายน้ำอยู่ในสภาพดี ไม่อุดตัน" value="3.1 ผ่าน"></td>
                     <td class="in"><input type="radio" name="3.1 ท่อ/ รางระบายน้ำอยู่ในสภาพดี ไม่อุดตัน" value="3.1 ไม่ผ่าน"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>3.2 มีการบำบัดน้ำเสียขั้นต้น เช่น ระบบบำบัดน้ำเสีย ถังดักไขมัน</td>
                     <td class="in"><input type="radio" name="3.2 มีการบำบัดน้ำเสียขั้นต้น เช่น ระบบบำบัดน้ำเสีย ถังดักไขมัน" value="3.2 ผ่าน"></td>
                     <td class="in"><input type="radio" name="3.2 มีการบำบัดน้ำเสียขั้นต้น เช่น ระบบบำบัดน้ำเสีย ถังดักไขมัน" value="3.2 ไม่ผ่าน"></td>
+                    <td class="in"><input type="radio" name="3.2 มีการบำบัดน้ำเสียขั้นต้น เช่น ระบบบำบัดน้ำเสีย ถังดักไขมัน" value="3.2 ไม่มี"></td>
                 </tr>
                 <tr>
                     <td>3.3 ระบบบำบัดน้ำเสียใช้งานได้ปกติ</td>
                     <td class="in"><input type="radio" name="3.3 ระบบบำบัดน้ำเสียใช้งานได้ปกติ" value="3.3 ผ่าน"></td>
                     <td class="in"><input type="radio" name="3.3 ระบบบำบัดน้ำเสียใช้งานได้ปกติ" value="3.3 ไม่ผ่าน"></td>
+                    <td class="in"><input type="radio" name="3.3 ระบบบำบัดน้ำเสียใช้งานได้ปกติ" value="3.3 ไม่มี"></td>
+
                 </tr>
 
             </table>
