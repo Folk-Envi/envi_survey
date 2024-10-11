@@ -116,4 +116,23 @@ table tr .in{
     border-radius: 4px;
     cursor: pointer;    
 }
+@media print {
+    @page {
+        size: A4; /* กำหนดขนาดหน้าพิมพ์เป็น A4 */
+        margin: 20mm; /* กำหนดมาร์จิ้น */
+    }
+
+    body {
+        -webkit-print-color-adjust: exact; /* ให้พิมพ์สีที่แท้จริง */
+        print-color-adjust: exact; /* สำหรับเบราว์เซอร์ที่รองรับ */
+    }
+
+    /* ซ่อนปุ่มพิมพ์เมื่อพิมพ์ */
+    #print {
+        display: none;
+    }
+    #submit {
+        display: none;
+    }
+}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
