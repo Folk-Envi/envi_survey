@@ -117,7 +117,7 @@ table tr .in{
     cursor: pointer;    
 }
 @media print {
-    *{
+    @page {
         size: A4; /* กำหนดขนาดหน้าพิมพ์เป็น A4 */
         margin: 20mm; /* กำหนดมาร์จิ้น */
     }
