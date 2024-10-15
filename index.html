@@ -200,7 +200,7 @@
 
 <script>
     function getFiles(){
-        const files = document.getElementById('files').files;
+        const files = document.getElementById('files');
         const folderName = new Date().toISOString().split('T')[0];
         const fileDataArray = [];
 
@@ -220,16 +220,7 @@
         }
     };
 
-    function uploadFilesToFolder(fileDataArray, folderName) {
-            const folder = DriveApp.createFolder(folderName);
-            const fileIds = [];
-
-            fileDataArray.forEach(fileData => {
-            const blob = Utilities.newBlob(Utilities.base64Decode(fileData), 'application/octet-stream', 'uploadedFile');
-            const file = folder.createFile(blob);
-            fileIds.push(file.getId());
-        });
-    }
+    
 
 
 
