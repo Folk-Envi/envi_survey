@@ -158,12 +158,21 @@
                 </tr>
             </table>
 
+            <div style="margin-top: 15px;">
+                <span for="Upload File">แนบไฟล์รูป : </span>
+                <input type="file" id="files" name="files" multiple>
+            </div>
+           
             <div><input class="suggest_input" placeholder="ข้อเสนอแนะ" type="text"  name="ข้อเสนอแนะ" ></div>
-         
+
             <div class="box_button">
-                <button class="button" type="submit" name="submit" id="submit" value="submit">ส่งแบบสำรวจ</button>
+                <button class="button" type="submit" name="submit" id="submit" onclick="getFiles" value="submit">ส่งแบบสำรวจ</button>
                 <button class="button" type="button" name="button" id="print" onclick="window.print();"><p>Print</p><p>(เปิดผ่าน Browser)</p></button>
             </div>
+           
+           
+         
+            
             <p id="demo"></p>
 
         </div>  
@@ -188,6 +197,29 @@
     })
 </script>
 
+
+<script>
+        function getFiles(){
+        const files = document.getElementById('files').files;
+        const folderName = new Date().toISOString().split('T')[0];
+        const fileDataArray = [];
+
+        for (let i = 0; i < files.length; i++) {
+          const reader = new FileReader();
+          reader.readAsDataURL(files[i]);
+          reader.onload = (e) => {
+            const base64data = reader.result.split(',')[1];
+            fileDataArray.push(base64data);
+            if (fileDataArray.length === files.length) {
+              // เมื่อโหลดไฟล์ครบแล้ว
+              google.script.run.withSuccessHandler(() => {
+                alert("upload เรียบร้อยแล้ว")
+              }).uploadFilesToFolder(fileDataArray, folderName);
+            }
+          };
+        }
+        };
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
