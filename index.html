@@ -199,27 +199,42 @@
 
 
 <script>
-    function getFiles(){
-        const files = document.getElementById('files');
+    document.getElementById('files').onsubmit = async function(e) {
+        e.preventDefault();
+    
+        const files = document.getElementById('files').files;
         const folderName = new Date().toISOString().split('T')[0];
         const fileDataArray = [];
 
         for (let i = 0; i < files.length; i++) {
           const reader = new FileReader();
           reader.readAsDataURL(files[i]);
-          reader.onload = (e) => {
+          reader.onload = function() {
             const base64data = reader.result.split(',')[1];
             fileDataArray.push(base64data);
             if (fileDataArray.length === files.length) {
               // เมื่อโหลดไฟล์ครบแล้ว
               google.script.run.withSuccessHandler(() => {
-                alert("upload เรียบร้อยแล้ว")
+                alert('ข้อมูลส่งเรียบร้อย!');
+                
               }).uploadFilesToFolder(fileDataArray, folderName);
+              
             }
           };
         }
-    };
+      };
 
+    function uploadFilesToFolder(fileDataArray, folderName) {
+        const folder = DriveApp.createFolder(folderName);
+  
+
+        fileDataArray.forEach(fileData => {
+        const blob = Utilities.newBlob(Utilities.base64Decode(fileData), 'application/octet-stream', 'uploadedFile');
+        const file = folder.createFile(blob);
+    });
+
+
+}
     
 
 
