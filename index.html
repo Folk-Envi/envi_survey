@@ -184,7 +184,7 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwOCAlaO3piMuKSYZp9Msj4WN5pCmPfT2tyuzRdiih8nG3wT7VqdWd7dfHsAuBZj0r5-g/exec'
     const form = document.forms['แบบสำรวจผู้แทน']
-    
+
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
@@ -195,35 +195,44 @@
             icon: "success"
         });
     })
+
+    const files = document.getElementById('files').files;
+    const folderName = new Date().toISOString().split('T')[0];
+    const fileDataArray = [];
+        for (let i = 0; i < files.length; i++) {
+          const reader = new FileReader();
+          reader.readAsDataURL(files[i]);
+          reader.onload = function() {
+            const base64data = reader.result.split(',')[1];
+            fileDataArray.push(base64data);
+            if (fileDataArray.length === files.length) {
+              // เมื่อโหลดไฟล์ครบแล้ว
+              google.script.run.withSuccessHandler(() => {
+                alert('ข้อมูลส่งเรียบร้อย!');
+              }).uploadFilesToFolder(fileDataArray, folderName);
+            }
+          };
+        }
+    
+    
+
+    function uploadFilesToFolder(fileDataArray, folderName) {
+        const folder = DriveApp.createFolder(folderName);
+        const fileIds = [];
+
+        fileDataArray.forEach(fileData => {
+        const blob = Utilities.newBlob(Utilities.base64Decode(fileData), 'application/octet-stream', 'uploadedFile');
+        const file = folder.createFile(blob);
+    });
+
+}
+
+        
+      
 </script>
 
 
-<script>
-   
 
-function getFiles() {
-  const f = document.getElementById('files');
-  [...f.files].forEach((file, i) => {
-    const fr = new FileReader();
-    fr.onload = (e) => {
-      const data = e.target.result.split(",");
-      const obj = {fileName: f.files[i].name, mimeType: data[0].match(/:(\w.+);/)[1], data: data[1]};
-      google.script.run.withSuccessHandler((id) => {
-        console.log(id);
-      }).saveFile(obj);
-    }
-    fr.readAsDataURL(file);
-  });
-  alert("upload เรียบร้อยแล้ว")
-}
-
-    
-
-    
-
-
-
-  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
