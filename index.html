@@ -184,20 +184,27 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxDUcRaUVfyYp3iQE9n4VSJe4EehpNRhCZaOvjTERwnaynQ8UMBROkTeBvtleFlj2rNyA/exec';
     const form = document.forms['แบบสำรวจผู้แทน'];
-    
+
     form.addEventListener('submit', e => {
         e.preventDefault();
         getFiles(); // เรียกใช้ฟังก์ชัน getFiles เมื่อส่งฟอร์ม
-        
+
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "บันทึกข้อมูลเรียบร้อยแล้ว",
-                showConfirmButton: false,
-                timer: 1500
-            });
+            return response.json(); // แปลงเป็น JSON
+        })
+        .then(data => {
+            if (data.result === 'success') {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "บันทึกข้อมูลเรียบร้อยแล้ว",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            } else {
+                console.error('Error!', data.error);
+            }
         })
         .catch(error => console.error('Error!', error.message));
     });
@@ -221,10 +228,10 @@
                     google.script.run.saveFile(obj); // บันทึกไฟล์ในโฟลเดอร์ที่กำหนด
                 };
                 fr.readAsDataURL(file);
-          });
-           
+            });
         }).createFolder(folderName); // สร้างโฟลเดอร์ก่อน
     }
 </script>
+    
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
