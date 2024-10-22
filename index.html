@@ -180,7 +180,7 @@
 </body>
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbznrrP6kKiRGcAJ-bpK_bSbGXI9gehEKeMpoh_JPKQ9ajXZLRFQKXVfJK3iY8fl3r3_/exec'
-    const form = document.forms['วล.02']
+    const form = document.forms['แบบสำรวจผู้แทน']
     
     form.addEventListener('submit', e => {
       e.preventDefault()
@@ -188,9 +188,9 @@
         
         .catch(error => console.error('Error!', error.message))
         Swal.fire({
-            title: "บันทึกผลเรียบร้อย!",
+            title: "บันทึกข้อมูลเรียบร้อยแล้ว",
             icon: "success"
-        });
+    });
     })
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
