@@ -179,8 +179,8 @@
     </form>
 </body>
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxyYc3yELTYpC-wn32kEPT0YsrUogKd-J66nw1RxFGOfFF_iM_fl0-c3cg3417GHvxjvg/exec'
-    const form = document.forms['แบบสำรวจผู้แทน']
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbznrrP6kKiRGcAJ-bpK_bSbGXI9gehEKeMpoh_JPKQ9ajXZLRFQKXVfJK3iY8fl3r3_/exec'
+    const form = document.forms['วล.02']
     
     form.addEventListener('submit', e => {
       e.preventDefault()
@@ -188,7 +188,7 @@
         
         .catch(error => console.error('Error!', error.message))
         Swal.fire({
-            title: "ส่งข้อมูลเรียบร้อย!",
+            title: "บันทึกผลเรียบร้อย!",
             icon: "success"
         });
     })
