@@ -158,10 +158,7 @@
                 </tr>
             </table>
 
-            <div style="margin-top: 15px;">
-                <span for="Upload File">แนบไฟล์รูป : </span>
-                <input id="files" type="file" id="files" multiple>
-            </div>
+        
            
             <div><input class="suggest_input" placeholder="ข้อเสนอแนะ" type="text"  name="ข้อเสนอแนะ" ></div>
 
@@ -188,8 +185,6 @@
 
     form.addEventListener('submit', e => {
         e.preventDefault();
-        getFiles(); // เรียกใช้ฟังก์ชัน getFiles เมื่อส่งฟอร์ม
-
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
             return response.json(); // แปลงเป็น JSON
@@ -210,31 +205,6 @@
         .catch(error => console.error('Error!', error.message));
     });
 
-    function getFiles() {
-        const f = document.getElementById('files');
-        const name = document.getElementById('ชื่อหน่วยงาน').value;
-        const folderName = `${name}_${new Date().toISOString().split('T')[0]}`; // ตั้งชื่อโฟลเดอร์ตามชื่อและวันที่
-
-        google.script.run.withSuccessHandler(folderId => {
-            [...f.files].forEach((file, i) => {
-                const fr = new FileReader();
-                fr.onload = (e) => {
-                    const data = e.target.result.split(",");
-                    const obj = {
-                        fileName: f.files[i].name,
-                        mimeType: data[0].match(/:(\w.+);/)[1],
-                        data: data[1],
-                        folderId: folderId // ส่ง ID ของโฟลเดอร์ที่สร้างขึ้น
-                    };
-                    google.script.run.saveFile(obj); // บันทึกไฟล์ในโฟลเดอร์ที่กำหนด
-                };
-                fr.readAsDataURL(file);
-            });
-        }).createFolder(folderName); // สร้างโฟลเดอร์ก่อน
-    }
-
-
-
-    
+</script>   
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
